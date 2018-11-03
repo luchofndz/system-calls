@@ -1,29 +1,31 @@
+#include <stdlib.h>
+#include <stdio.h>
 #include <sys/types.h>
 #include <signal.h>
 #include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
 
+int contador = 0;
 void paloRojo(int sig);
 void paloNegro(int sig);
-int counter_cards = 1; //to 10, then exit()
 
-int main(int argc, char *argv[]){//recibe en arg 1 el pid de galera
-
-  signal(SIGUSR1, &paloRojo); //recibe señal palo negro
-  signal(SIGUSR2, &paloNegro); //recibe señan palo rojo
-
-  while(counter_cards!=10);
-  return 0;
+int main(int argc, char *argv[]){
+	
+	signal(SIGUSR1, &paloRojo);
+	signal(SIGUSR2, &paloNegro);
+	
+	while(contador!=10);
+	
+	return 0;
 }
 
 void paloRojo(int sig){
-  printf("Dama. Esta carta roja es para Ud. (%d) /n", counter_cards);
-  printf("Ha salido un obsequio para ustedes. /n")
-  counter_cards++;
+	printf("Ha salido un obsequio para ustedes.\n");
+	printf("Dama. Esta carta Roja es pa Ud. (%d)\n", contador+1);
+	contador++;
 }
+
 void paloNegro(int sig){
-  printf("Caballero. Esta carta negra es para Ud. (%d) /n", counter_cards);
-  printf("Ha salido un obsequio para ustedes. /n");
-  counter_cards++;
+	printf("Ha salido un obsequio para ustedes.\n");
+	printf("Caballero. Esta carta Negra es pa Ud. (%d)\n", contador+1);
+	contador++;
 }
