@@ -6,16 +6,15 @@
 
 void paloRojo(int sig);
 void paloNegro(int sig);
-int counter_cards = 1;
+int counter_cards = 1; //to 10, then exit()
 
 int main(int argc, char *argv[]){//recibe en arg 1 el pid de galera
 
-  kill(pid_galera, SIGUSR2);
-  sleep(1); //tarde 1 seg
-
   signal(SIGUSR1, &paloRojo); //recibe señal palo negro
-
   signal(SIGUSR2, &paloNegro); //recibe señan palo rojo
+
+  while(counter_cards!=10);
+  return 0;
 }
 
 void paloRojo(int sig){
