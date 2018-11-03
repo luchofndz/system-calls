@@ -18,12 +18,12 @@ int main(int argc, char *argv[]){//recibe en arg 1 el pid de galera
 }
 
 void paloRojo(int sig){
-  printf("Dama. Esta carta roja es para Ud. %(d) /n", counter_cards);
+  printf("Dama. Esta carta roja es para Ud. (%d) /n", counter_cards);
   printf("Ha salido un obsequio para ustedes. /n")
   counter_cards++;
 }
 void paloNegro(int sig){
-  printf("Caballero. Esta carta negra es para Ud. %(d) /n", counter_cards);
+  printf("Caballero. Esta carta negra es para Ud. (%d) /n", counter_cards);
   printf("Ha salido un obsequio para ustedes. /n");
   counter_cards++;
 }
